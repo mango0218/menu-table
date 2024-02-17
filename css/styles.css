@@ -6,7 +6,7 @@
 
 ul {
   list-style: none;
-
+  padding: 0;
 }
 
 .wrapper {
@@ -15,15 +15,28 @@ ul {
   max-width: 990px;
 }
 
-.menu {
-  padding: 0;
+.navigation {
+  display: table;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.menu1 {
   display: flex;
   justify-content: space-between;
   background-color: #2a3644;
   border-radius: 13px 13px;
 }
 
-.main>a {
+.menu2 {
+  display: table-row;
+}
+
+.menu2>li {
+  display: table-cell;
+}
+
+.menu>.main>a {
   text-align: center;
 }
 
@@ -39,7 +52,7 @@ ul {
   border-radius: 13px 13px 0 0;
 }
 
-.inmenu li:last-child a {
+.inmenu>li:last-child>a {
   border-radius: 0 0 13px 13px;
 }
 
@@ -57,19 +70,19 @@ ul {
   color: #ffffff;
 }
 
-.main:not(:last-child){
+.menu>.main:not(:last-child) {
   border-right: 1px solid #3f4852;
 }
 
-.main:not(:first-child)  {
+.menu>.main:not(:first-child) {
   border-left: 1px solid #3f4852;
 }
 
-.inmenu li:not(:first-child) a{
+.inmenu li:not(:first-child) a {
   border-top: 1px solid #b9bdc1;
 }
 
-.main{
+.main {
   position: relative;
 }
 
@@ -93,22 +106,38 @@ ul {
   background-color: #3f4852;
 }
 
-.inmenu {
+.inmenu{
   position: absolute;
+  z-index: 1;
   border-top: 5px solid transparent;
   padding: 0;
   display: none;
 }
 
-.main:last-child .inmenu{
+.inmenu2{
+ position: absolute;
+ left: 100%;
+ top: -4px;
+ border-left: 5px solid transparent;
+}
+
+.inmenu3{
+ position: absolute;
+ right: 100%;
+ top: -4px;
+ border-right: 5px solid transparent;
+}
+
+.menu1 .main:last-child .inmenu {
   right: 0;
 }
 
-.main:hover ul {
+.menu>li:hover>ul,
+.inmenu>li:hover>ul{
   display: block;
 }
 
-.inmenu a {
+.inmenu a{
   padding: 12px 20px;
   min-width: 210px;
   background-color: #d2d4d5;
